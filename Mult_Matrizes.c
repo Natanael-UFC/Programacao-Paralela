@@ -19,14 +19,12 @@ double ** aloca_matriz(int n_linhas, int n_colunas){
 
 	for(i = 0; i < n_colunas; i++){
 		matriz[i] = (double *) calloc(n_linhas, sizeof(double));
-		if(matriz[i] == NULL){
-			printf("Error: Memoria insuficiente **\n");
-		}
+		if(matriz[i] == NULL) printf("Error: Memoria insuficiente **\n");
 	}
 	return matriz;
 }
 
-double ** libera_matriz( double ** matriz, int n_linhas, int n_colunas){
+double ** libera_matriz(double ** matriz, int n_linhas, int n_colunas){
 	int i = 0;
 
 	if(matriz == NULL) return (NULL);
@@ -45,22 +43,18 @@ double ** libera_matriz( double ** matriz, int n_linhas, int n_colunas){
 void le_matriz(double ** matriz, int n_linhas, int n_colunas){
 	int i = 0, j = 0;
 
-	for(i = 0; i < n_linhas; i++){
-		for(j = 0; j < n_colunas; j++){
+	for(i = 0; i < n_linhas; i++)
+		for(j = 0; j < n_colunas; j++) 
 			matriz[i][j] = 1.0;
-		}
-	}
 }
 
 void multiplica(double ** matriz_1, double ** matriz_2, double ** matriz_final, int qntd){
 	int i = 0, j = 0, k = 0;
-	for(i = 0; i < qntd; i++){
-		for(j = 0; j < qntd; j++){
-			for(k = 0; k < qntd; k++){
+	
+	for(i = 0; i < qntd; i++)
+		for(j = 0; j < qntd; j++)
+			for(k = 0; k < qntd; k++)
 				matriz_final[i][j] = matriz_final[i][j] + (matriz_1[i][k] * matriz_2[k][j]);
-			}
-		}
-	}
 }
 
 void imprime(double ** matriz, int n_linhas, int n_colunas){
