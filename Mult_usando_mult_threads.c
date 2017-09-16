@@ -39,7 +39,6 @@ double ** release_matrix(double ** matrix, int num_rows, int num_columns){
 		printf("Error: Parametro invalido !\n");
 		return matrix;
 	}
-
 	free(matrix);
 	return(NULL);
 }
@@ -59,36 +58,12 @@ void *func_mult_matx(void *arg){
 	endidx = argument->fromidx + argument->lenght;
 
 	for(i = 0; i < argument->columns; i++){
-		printf("%d\n", i);
 		for(j = argument->fromidx; j < endidx; j++){
 			for(k = 0; k < argument->columns; k++){
 				matrix_3[i][j] = matrix_3[i][j] + (matrix_1[i][k] * matrix_2[k][j]);
 			}
 		}
 	}
-/*
-	if(my_data->id_1 == 1){
-		tam_th = (tam / 2) - 1;
-		for(i = 0; i <= tam_th; i++){
-			for(j = 0; j < tam; j++){
-				for (k = 0; k <= tam_th; k++){
-					matriz_3[i][j] = matriz_3[i][j] + (matriz_1[i][k] * matriz_2[k][j]);
-				}
-			}
-		}
-	}
-
-    if(my_data->id_2 == 2){
-		tam_th2 = (tam / 2);
-		for(i = tam_th2; i < tam; i++){
-			for(j = 0; j < tam; j++){
-				for (k = tam_th2; k < tam; k++){
-					matriz_3[i][j] = matriz_3[i][j] + (matriz_1[i][k] * matriz_2[k][j]);
-				}
-			}
-		}
-	}
-	*/
 }
 
 void print_out(double ** matrix, int num_rows, int num_columns){
@@ -102,7 +77,6 @@ void print_out(double ** matrix, int num_rows, int num_columns){
 }
 
 int main(int argc, char const *argv[]){
-
 	int num_rows = 0, num_columns = 0, num_threads = 0, i, lenght;
 
 	num_rows = atoi(argv[1]);
@@ -142,6 +116,5 @@ int main(int argc, char const *argv[]){
 	release_matrix(matrix_3, num_rows, num_columns);
 
 	pthread_exit(NULL);
-
 	return 0;
 }
