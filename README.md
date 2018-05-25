@@ -1,0 +1,1 @@
+## Implementação de um Algoritmo para realização do calculo de multiplicação de matrizes. O Algoritmo foi implementado na linguagem C. Foi implementado em diferentes versões, sendo uma delas uma versão paralelizada.
